@@ -1,7 +1,3 @@
-const { create } = require('domain');
-const { KnexTimeoutError } = require('knex');
-const { nextTick } = require('process');
-const { update } = require('../database');
 const knex = require('../database');
 
 module.exports = {
