@@ -10,8 +10,10 @@ routes
   .post('/users', UserController.create)
   .put('/users/:id', UserController.update)
   .delete('/users/:id', UserController.delete)
-  //projects:
+  // projects:
   .get('/projects', ProjectController.index)
   .post('/projects', ProjectController.create);
+
+// soft delete -> "finge" que apagou, porem permanece no banco em "stand by"
 
 module.exports = routes;
