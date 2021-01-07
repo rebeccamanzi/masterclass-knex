@@ -3,7 +3,9 @@ const knex = require('../database');
 module.exports = {
   // lista todos os usuarios
   async index(req, res) {
-    const results = await knex('users');
+    const results = await knex('users')
+      // só aparecerá os que não foram 'deletados'
+      .where('deleted_at', null);
     return res.json(results);
   },
 
@@ -41,7 +43,8 @@ module.exports = {
     try {
       const { id } = req.params;
 
-      await knex('users').where({ id }).del();
+      await knex('users').where({ id }).update('deleted_at', new Date()); // 'falso delete'
+      // .del();
 
       return res.send();
     } catch (error) {

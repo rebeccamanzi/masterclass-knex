@@ -1,3 +1,5 @@
+// TABELA DE USUARIOS
+
 exports.up = (knex) =>
   // mapeando o banco de dados:
   knex.schema.createTable('users', (table) => {
